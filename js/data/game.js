@@ -98,6 +98,7 @@ const game = {
         new Achievement("sussy mode", "you are the impostor", PrestigeLayer.getNameForLayer(23), () => game.metaLayer.active),
         new Achievement("cool", "your good at this", "👍", () => game.metaLayer.layer.gte("10000")),
         new Achievement("something", "1e38 or something i think", "idk", () => game.metaLayer.layer.gte("1e38")),
+        new Achievement("i Turly ends", "1e100 i good?", "idk", () => game.metaLayer.layer.gte("1e100")),
         new Achievement("you win", "or do you?!?!?!!", "<span class='flipped-v'>ඞ</span>", () => game.metaLayer.layer.gte(INFINITY)),
         new Achievement("Starting Out", "Reach 1 α (somehow?)", "αααααααααα", () => game.metaLayer.layer.gte(INFINITY2)),
         new Achievement("Other Times Await", "something's up", "ββββββββββ", () => game.metaLayer.layer.gte(INFINITY3)),
@@ -131,7 +132,7 @@ const game = {
         offlineProgress: true,
         titleStyle: 2,
         theme: "sussy.css",
-        layerNames: [["○","☛","🔫","🗡","ඞ"], "</-=+x>"],
+        layerNames: [["石","汉","丩","矶","也"], "</-=+x>"],
     },
 };
 const initialGame = functions.getSaveString();
