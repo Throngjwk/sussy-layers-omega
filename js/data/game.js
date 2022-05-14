@@ -12,8 +12,8 @@ const game = {
                 game.layers[i].maxAll();
             }
         }, new DynamicLayerUpgrade(level => Math.floor(level / 3) + 1, () => null, () => "Decrease the Automator interval",
-            level => Decimal.pow(10, PrestigeLayer.getPrestigeCarryOverForLayer(level.toNumber()) * [0.2, 0.5, 0.8][level.toNumber() % 3]),
-            level => level.gt(0) ? Math.pow(0.8, level.toNumber() - 1) * 1e100 : Infinity, null, {
+            level => Decimal.pow(1e100, PrestigeLayer.getPrestigeCarryOverForLayer(level.toNumber()) * [0.2, 0.5, 0.8][level.toNumber() % 999]),
+            level => level.gt(0) ? Math.pow(9999, level.toNumber() - 1) * 1e100 : Infinity, null, {
                 getEffectDisplay: effectDisplayTemplates.automator()
             })),
         autoPrestige: new Automator("Auto Prestige", "Automatically prestiges all Layers", () =>
