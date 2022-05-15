@@ -140,6 +140,17 @@ class ReStackLayer
                             return this.level.gt(0) ? "Unlocked" : "Locked";
                         }
                     })
+            ],
+                        [
+                new RestackLayerUpgrade("Unlock Autobuyer",
+                    level => new Decimal("1ee700"),
+                    level => level.gt(0), {
+                        maxLevel: 1,
+                        getEffectDisplay: function()
+                        {
+                            return this.level.gt(0) ? "Unlocked" : "Locked";
+                        }
+                    })
             ]
         ];
         this.upgradeTree[1][0].setRequirements([this.upgradeTree[0][0]], [this.upgradeTree[1][1]]);
@@ -152,6 +163,7 @@ class ReStackLayer
         this.upgradeTree[5][1].setRequirements([this.upgradeTree[4][0]], [this.upgradeTree[5][0]]);
         this.upgradeTree[6][0].setRequirements([this.upgradeTree[5][0], this.upgradeTree[5][1]], []);
         this.upgradeTree[7][0].setRequirements([this.upgradeTree[6][0]], [this.upgradeTree[6][0]]);
+        this.upgradeTree[8][0].setRequirements([this.upgradeTree[7[0]], [this.upgradeTree[7][0]]);
         this.upgradeTreeNames = {
             resourceMultiplier: this.upgradeTree[0][0],
             resourceMultiplierUpgrades: this.upgradeTree[1][0],
