@@ -14,7 +14,7 @@ class ReStackLayer
             layerExponentialBoostFactorTime: new RestackLayerUpgrade("The Layer Exponential Factor increases over time",
                 level => this.getPermUpgradeCost(),
                 level => Math.min(1, this.timeSpent / 28800) * 3 * level.toNumber(), {
-                    maxLevel: 2,
+                    maxLevel: 999,
                     getEffectDisplay: effectDisplayTemplates.numberStandard(4, "+")
                 }),
             upgradeEffects: new RestackLayerUpgrade("All Upgrade Effects are stronger (including Tree Upgrades)",
@@ -45,7 +45,7 @@ class ReStackLayer
         this.metaUpgrade = new RestackLayerUpgrade("All your Layer Resources are multiplied each second",
             level => new Decimal(1e10).pow(level.add("1").mul(level.add("1"))),
             level => 1 + 0.3 * level.toNumber(),{
-                maxLevel: 5,
+                maxLevel: 9999,
             });
         this.upgradeTree = [
             [
@@ -141,17 +141,6 @@ class ReStackLayer
                         }
                     })
             ],
-                        [
-                new RestackLayerUpgrade("Unlock Autobuyer",
-                    level => new Decimal("1ee700"),
-                    level => level.gt(0), {
-                        maxLevel: 1,
-                        getEffectDisplay: function()
-                        {
-                            return this.level.gt(0) ? "Unlocked" : "Locked";
-                        }
-                    })
-            ]
         ];
         this.upgradeTree[1][0].setRequirements([this.upgradeTree[0][0]], [this.upgradeTree[1][1]]);
         this.upgradeTree[1][1].setRequirements([this.upgradeTree[0][0]], [this.upgradeTree[1][0]]);
@@ -163,7 +152,6 @@ class ReStackLayer
         this.upgradeTree[5][1].setRequirements([this.upgradeTree[4][0]], [this.upgradeTree[5][0]]);
         this.upgradeTree[6][0].setRequirements([this.upgradeTree[5][0], this.upgradeTree[5][1]], []);
         this.upgradeTree[7][0].setRequirements([this.upgradeTree[6][0]], [this.upgradeTree[6][0]]);
-        this.upgradeTree[8][0].setRequirements([this.upgradeTree[7[0]], [this.upgradeTree[7][0]]);
         this.upgradeTreeNames = {
             resourceMultiplier: this.upgradeTree[0][0],
             resourceMultiplierUpgrades: this.upgradeTree[1][0],
