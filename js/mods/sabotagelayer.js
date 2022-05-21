@@ -24,12 +24,8 @@ class SabotageLayer
                 level => Decimal.pow(7,level).floor(), {
                     getEffectDisplay: effectDisplayTemplates.numberStandard(3,"÷","")
                 }),
-            sabotageBoost: new sabotageUpgrade("Ultra Multiply sabotage gain",
-                level => new Decimal(1e100).pow(Decimal.pow(2, level)),
-                level => Decimal.pow(level+1,9999)),
-                }),
             metaTet: new sabotageUpgrade("Tetrate the resource multiplier",
-                level => new Decimal("1e1000"),
+                level => new Decimal("1e100"),
                 level => new Decimal("1").add(level.mul("0.2")), {
                     maxLevel: 1,
                     getEffectDisplay: effectDisplayTemplates.numberStandard(1,"^^","")
