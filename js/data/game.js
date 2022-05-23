@@ -131,7 +131,7 @@ const game = {
         offlineProgress: true,
         titleStyle: 2,
         theme: "sussy.css",
-        layerNames: [["○","☛","🔫","🗡","ඞ"], "</-=+x>"],
+        layerNames: [["0.01","0.02","0.04","0.05","0.07"], "</-=+x>"],
     },
 };
 const initialGame = functions.getSaveString();
