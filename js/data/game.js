@@ -13,7 +13,7 @@ const game = {
             }
         }, new DynamicLayerUpgrade(level => Math.floor(level / 3) + 1, () => null, () => "Decrease the Automator interval",
             level => Decimal.pow(1e100, PrestigeLayer.getPrestigeCarryOverForLayer(level.toNumber()) * [0.2, 0.5, 0.8][level.toNumber() % 999]),
-            level => level.gt(0) ? Math.pow(9999, level.toNumber() - 1) * 1e100 : Infinity, null, {
+            level => level.gt(0) ? Math.pow(9999, level.toNumber() - 1) * 1e-100 : Infinity, null, {
                 getEffectDisplay: effectDisplayTemplates.automator()
             })),
         autoPrestige: new Automator("Auto Prestige", "Automatically prestiges all Layers", () =>
@@ -79,7 +79,7 @@ const game = {
             function()
             {
                 return "The next Layer is maxed automatically each tick";
-            }, level => Decimal.pow(10, PrestigeLayer.getPrestigeCarryOverForLayer(level.add(2).toNumber()) * 0.125), level => level.sub(1), null, {
+            }, level => Decimal.pow(10, PrestigeLayer.getPrestigeCarryOverForLayer(level.add(-1).toNumber()) * 0.125), level => level.sub(1), null, {
                 getEffectDisplay: function()
                 {
                     const val1 = this.level.eq(0) ? "None" : PrestigeLayer.getNameForLayer(this.apply().toNumber());
@@ -89,6 +89,7 @@ const game = {
             }),
     },
     achievements: [
+        new Achievement("Negative Circle", "huh", PrestigeLayer.getNameForLayer(-1), () => (game.layers[-1] && game.layers[-1].resource.gt(1)) || game.metaLayer.active),
         new Achievement("sus", "start the game", "?", () => (game.layers[0] && game.layers[0].resource.gt(1)) || game.metaLayer.active),
         new Achievement("10!!!", "you be 10 aplha", "10", () => (game.layers[0] && game.layers[0].resource.gt(10)) || game.metaLayer.active),
         new Achievement("hundred", "this hundred", "100", () => (game.layers[0] && game.layers[0].resource.gt(100)) || game.metaLayer.active),
