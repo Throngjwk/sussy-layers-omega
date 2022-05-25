@@ -17,10 +17,10 @@ class SabotageLayer
                     getEffectDisplay: effectDisplayTemplates.numberStandard(3,"^","")
                 }),
             sabotageBoost: new sabotageUpgrade("Multiply sabotage gain",
-                level => new Decimal(1e20).pow(Decimal.pow(1.5, level)),
+                level => new Decimal(100).pow(Decimal.pow(1.5, level)),
                 level => Decimal.pow(level+1,8)),
             costDivider: new sabotageUpgrade("Divide the cost of resource multipliers and powerers",
-                level => new Decimal(1e25).pow(Decimal.pow(3.4, level)),
+                level => new Decimal(100000).pow(Decimal.pow(3.4, level)),
                 level => Decimal.pow(7,level).floor(), {
                     getEffectDisplay: effectDisplayTemplates.numberStandard(3,"÷","")
                 }),
