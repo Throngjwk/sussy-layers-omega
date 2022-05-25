@@ -12,7 +12,7 @@ class SabotageLayer
                     getEffectDisplay: effectDisplayTemplates.percentStandard(3, "", " %", 0)
                 }),
             metaPowered: new sabotageUpgrade("Power the resource multiplier",
-                level => new Decimal(1e7).pow(Decimal.pow(5.3, level)),
+                level => new Decimal(1e7).pow(Decimal.pow(1.001, level)),
                 level => Decimal.pow(8,level), {
                     getEffectDisplay: effectDisplayTemplates.numberStandard(3,"^","")
                 }),
